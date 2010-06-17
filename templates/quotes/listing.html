@@ -1,5 +1,8 @@
 {% extends "base.html" %}
+{% load markup %}
 
 {% block body %}
-test
+{% for quote in quotes %}
+{{quote.text|markup|safe}}
+{% endfor %}
 {% endblock %}
