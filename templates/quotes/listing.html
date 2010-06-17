@@ -2,7 +2,21 @@
 {% load markup %}
 
 {% block body %}
+<h1>#{{channel}} IRC Quotes</h1>
+<p>Also see: <a href="/">Main page</a></p>
+<div id="quote-container">
+
 {% for quote in quotes %}
-{{quote.text|markup|safe}}
+	<div id="quote-{{quote.id}}" class="quote">
+		<div class="quote-header">
+			<a href="{{quote.get_absolute_url}}" name="quote-{{quote.id}}"><strong>Quote #{{quote.id}}</strong></a> added on {{quote.date}}
+		</div>
+		<p class="quote">
+			{{quote.text|markup|safe}}
+		</p>
+	</div>
 {% endfor %}
+
+</div>
+
 {% endblock %}
